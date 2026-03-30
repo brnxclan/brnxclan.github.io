@@ -1,49 +1,117 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <title>BRNX Clan</title>
-    <style>
-        body {
-            margin: 0;
-            background-color: #0b0f1a;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
+<meta charset="UTF-8">
+<title>BRNX Clan</title>
 
-        header {
-            padding: 40px;
-            background: linear-gradient(90deg, #0f172a, #020617);
-        }
+<style>
+body {
+    margin: 0;
+    background: #020617;
+    font-family: Arial, sans-serif;
+    color: white;
+}
 
-        h1 {
-            color: #22c55e;
-            font-size: 48px;
-        }
+/* HEADER */
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #020617, #0f172a);
+}
 
-        p {
-            font-size: 18px;
-            color: #94a3b8;
-        }
+h1 {
+    font-size: 60px;
+    color: #22c55e;
+    text-shadow: 0 0 20px #22c55e;
+}
 
-        .box {
-            margin-top: 40px;
-            padding: 20px;
-        }
-    </style>
+.subtitle {
+    color: #94a3b8;
+    margin-top: 10px;
+}
+
+/* SEZIONE */
+.section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* CARD MEMBRI */
+.members {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #0f172a;
+    padding: 20px;
+    border-radius: 15px;
+    width: 200px;
+    transition: 0.3s;
+    border: 1px solid #1e293b;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #22c55e;
+}
+
+.name {
+    color: #22c55e;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #64748b;
+}
+</style>
+
 </head>
+
 <body>
 
 <header>
-    <h1>🔥 BRNX CLAN 🔥</h1>
-    <p>Warzone Team</p>
+    <h1>BRNX CLAN</h1>
+    <p class="subtitle">Warzone Team</p>
 </header>
 
-<div class="box">
-    <h2>Benvenuto nel nostro clan</h2>
-    <p>Qui troverai membri, stats e molto altro.</p>
+<div class="section">
+    <h2>Chi siamo</h2>
+    <p>Clan competitivo di Call of Duty Warzone.</p>
 </div>
+
+<div class="section">
+    <h2>Membri</h2>
+
+    <div class="members">
+
+        <div class="card">
+            <div class="name">Player1</div>
+            <p>K/D: 2.5</p>
+        </div>
+
+        <div class="card">
+            <div class="name">Player2</div>
+            <p>K/D: 1.8</p>
+        </div>
+
+        <div class="card">
+            <div class="name">Player3</div>
+            <p>K/D: 3.1</p>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    © 2026 BRNX Clan
+</footer>
 
 </body>
 </html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BRNX CLAN — Candidatura</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  
   <style>
     :root {
       --red: #cc0000;
@@ -16,7 +17,8 @@
       --grey: #888888;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       background-color: var(--black);
       color: var(--white);
@@ -25,28 +27,29 @@
       overflow-x: hidden;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       background: var(--black-mid);
       border-bottom: 1px solid #1a1a1a;
-      padding: 1rem 2rem;
+      padding: 1.2rem 3rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
+
     .nav-logo {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: var(--white);
       text-decoration: none;
     }
     .nav-logo span { color: var(--red-bright); }
 
-    /* ── FORM CONTAINER ── */
+    /* FORM CONTAINER */
     .form-container {
-      max-width: 600px;
-      margin: 4rem auto;
-      padding: 2rem;
+      max-width: 620px;
+      margin: 5rem auto;
+      padding: 3rem 2.5rem;
       background: var(--black-card);
       border: 1px solid #1a1a1a;
       position: relative;
@@ -55,59 +58,85 @@
     .form-container::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 3px;
-      background: var(--red);
+      top: 0; left: 0; width: 100%; height: 4px;
+      background: linear-gradient(to right, var(--red), var(--red-bright));
     }
 
     h1 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 3rem;
+      font-size: 3.2rem;
       letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
       text-align: center;
+      margin-bottom: 0.4rem;
     }
 
-    p.subtitle {
+    .subtitle {
       text-align: center;
       color: var(--grey);
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      font-size: 0.9rem;
+      letter-spacing: 0.25em;
+      font-size: 0.95rem;
       margin-bottom: 3rem;
     }
 
     .form-group {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.8rem;
     }
 
     label {
       display: block;
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.2rem;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.6rem;
       color: var(--red-bright);
     }
 
     input, textarea {
       width: 100%;
-      padding: 1rem;
+      padding: 1rem 1.2rem;
       background: #0d0d0d;
       border: 1px solid #222;
       color: var(--white);
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1rem;
+      font-size: 1.05rem;
       transition: border-color 0.3s;
     }
 
     input:focus, textarea:focus {
       outline: none;
       border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.15);
     }
 
     textarea {
       resize: vertical;
-      min-height: 120px;
+      min-height: 130px;
+    }
+
+    /* Privacy Checkbox */
+    .privacy-group {
+      margin: 2rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .privacy-group input[type="checkbox"] {
+      width: auto;
+      margin-top: 4px;
+      accent-color: var(--red);
+    }
+
+    .privacy-text {
+      font-size: 0.95rem;
+      color: var(--grey);
+      line-height: 1.5;
+    }
+
+    .privacy-text a {
+      color: var(--red-bright);
+      text-decoration: underline;
     }
 
     .btn-submit {
@@ -115,40 +144,42 @@
       background: var(--red);
       color: var(--white);
       border: none;
-      padding: 1rem;
+      padding: 1.2rem;
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       letter-spacing: 0.1em;
       cursor: pointer;
       clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
-      transition: background 0.3s, transform 0.2s;
+      transition: all 0.3s;
       margin-top: 1rem;
     }
 
     .btn-submit:hover {
       background: var(--red-bright);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
 
-    /* ── FOOTER ── */
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 3rem 1rem 2rem;
       color: #444;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      .form-container { margin: 3rem 1rem; padding: 2rem 1.5rem; }
     }
   </style>
 </head>
 <body>
-
   <nav>
     <a href="index.html" class="nav-logo">BRN<span>X</span></a>
-    <a href="index.html" style="color: var(--grey); text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em;">← Torna alla Home</a>
+    <a href="index.html" style="color: var(--grey); text-decoration: none; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">← Torna alla Home</a>
   </nav>
 
   <div class="form-container">
-    <h1>Reclutamento</h1>
-    <p class="subtitle">Dimostra il tuo valore</p>
+    <h1>RECLUTAMENTO</h1>
+    <p class="subtitle">Dimostra il tuo valore • Entra nel Clan</p>
 
     <form action="https://formspree.io/f/brnxclan.wz@gmail.com" method="POST">
       
@@ -159,11 +190,11 @@
 
       <div class="form-group">
         <label for="age">Età Anagrafica</label>
-        <input type="number" id="age" name="eta" placeholder="Quanti anni hai?" required>
+        <input type="number" id="age" name="eta" placeholder="Quanti anni hai?" min="14" required>
       </div>
 
       <div class="form-group">
-        <label for="playerid">ID Giocatore (Activision ID)</label>
+        <label for="playerid">Activision ID</label>
         <input type="text" id="playerid" name="playerid" placeholder="User#1234567" required>
       </div>
 
@@ -174,18 +205,26 @@
 
       <div class="form-group">
         <label for="reason">Perché vuoi entrare nei BRNX?</label>
-        <textarea id="reason" name="messaggio" placeholder="Raccontaci la tua esperienza o le tue ambizioni..." required></textarea>
+        <textarea id="reason" name="messaggio" placeholder="Raccontaci la tua esperienza, K/D medio, piattaforma (PC/PS5/Xbox) e cosa porti al clan..." required></textarea>
       </div>
 
+      <!-- Privacy Flag -->
+      <div class="privacy-group">
+        <input type="checkbox" id="privacy" name="privacy" required>
+        <label for="privacy" class="privacy-text">
+          Accetto il trattamento dei miei dati personali ai sensi della Privacy Policy del BRNX Clan e dichiaro di aver letto il Regolamento.
+        </label>
+      </div>
+
+      <!-- Honeypot anti-spam -->
       <input type="text" name="_gotcha" style="display:none">
 
-      <button type="submit" class="btn-submit">Invia Candidatura</button>
+      <button type="submit" class="btn-submit">INVIA CANDIDATURA</button>
     </form>
   </div>
 
   <footer>
-    &copy; 2026 BRNX CLAN &nbsp;·&nbsp; SELEZIONI APERTE
+    © 2026 BRNX CLAN &nbsp;·&nbsp; SELEZIONI APERTE — WARZONE ELITE DIVISION
   </footer>
-
 </body>
 </html>

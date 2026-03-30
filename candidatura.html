@@ -27,7 +27,6 @@
       overflow-x: hidden;
     }
 
-    /* NAV */
     nav {
       background: var(--black-mid);
       border-bottom: 1px solid #1a1a1a;
@@ -45,7 +44,6 @@
     }
     .nav-logo span { color: var(--red-bright); }
 
-    /* FORM CONTAINER */
     .form-container {
       max-width: 620px;
       margin: 5rem auto;
@@ -98,9 +96,7 @@
       background: #0d0d0d;
       border: 1px solid #222;
       color: var(--white);
-      font-family: 'Barlow Condensed', sans-serif;
       font-size: 1.05rem;
-      transition: border-color 0.3s;
     }
 
     input:focus, textarea:focus {
@@ -109,12 +105,8 @@
       box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.15);
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 130px;
-    }
+    textarea { min-height: 130px; resize: vertical; }
 
-    /* Privacy Checkbox */
     .privacy-group {
       margin: 2rem 0;
       display: flex;
@@ -132,11 +124,6 @@
       font-size: 0.95rem;
       color: var(--grey);
       line-height: 1.5;
-    }
-
-    .privacy-text a {
-      color: var(--red-bright);
-      text-decoration: underline;
     }
 
     .btn-submit {
@@ -165,10 +152,6 @@
       color: #444;
       font-size: 0.85rem;
     }
-
-    @media (max-width: 600px) {
-      .form-container { margin: 3rem 1rem; padding: 2rem 1.5rem; }
-    }
   </style>
 </head>
 <body>
@@ -181,8 +164,11 @@
     <h1>RECLUTAMENTO</h1>
     <p class="subtitle">Dimostra il tuo valore • Entra nel Clan</p>
 
-    <form action="https://formspree.io/f/brnxclan.wz@gmail.com" method="POST">
+    <form action="https://api.web3forms.com/submit" method="POST">
       
+      <!-- Chiave pubblica Web3Forms (sostituiscila con la tua) -->
+      <input type="hidden" name="access_key" value="INSERISCI_QUI_LA_TUA_ACCESS_KEY">
+
       <div class="form-group">
         <label for="nickname">Nickname (In-game)</label>
         <input type="text" id="nickname" name="nickname" placeholder="Esempio: Ghost_BRNX" required>
@@ -200,24 +186,21 @@
 
       <div class="form-group">
         <label for="email">Indirizzo Email</label>
-        <input type="email" id="email" name="_replyto" placeholder="tua@email.com" required>
+        <input type="email" id="email" name="email" placeholder="tua@email.com" required>
       </div>
 
       <div class="form-group">
         <label for="reason">Perché vuoi entrare nei BRNX?</label>
-        <textarea id="reason" name="messaggio" placeholder="Raccontaci la tua esperienza, K/D medio, piattaforma (PC/PS5/Xbox) e cosa porti al clan..." required></textarea>
+        <textarea id="reason" name="messaggio" placeholder="Raccontaci la tua esperienza, piattaforma, K/D medio..." required></textarea>
       </div>
 
-      <!-- Privacy Flag -->
+      <!-- Privacy -->
       <div class="privacy-group">
-        <input type="checkbox" id="privacy" name="privacy" required>
+        <input type="checkbox" id="privacy" required>
         <label for="privacy" class="privacy-text">
-          Accetto il trattamento dei miei dati personali ai sensi della Privacy Policy del BRNX Clan e dichiaro di aver letto il Regolamento.
+          Accetto il trattamento dei miei dati personali e dichiaro di aver letto il Regolamento del BRNX Clan.
         </label>
       </div>
-
-      <!-- Honeypot anti-spam -->
-      <input type="text" name="_gotcha" style="display:none">
 
       <button type="submit" class="btn-submit">INVIA CANDIDATURA</button>
     </form>

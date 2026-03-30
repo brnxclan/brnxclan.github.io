@@ -26,10 +26,9 @@
       cursor: crosshair;
     }
 
-    /* Effetti atmosfera */
     .overlay-vignette {
       position: fixed; inset: 0;
-      background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.88) 100%);
+      background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.9) 100%);
       pointer-events: none; 
       z-index: 100;
     }
@@ -48,7 +47,6 @@
       100% { background-position: 0 300px; }
     }
 
-    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0;
       padding: 1.8rem 5rem;
@@ -67,7 +65,6 @@
     }
     .nav-logo span { color: var(--red); text-shadow: 0 0 20px var(--red); }
 
-    /* HERO */
     .hero {
       height: 100vh;
       display: flex; 
@@ -81,23 +78,23 @@
 
     .hero-bg {
       position: absolute; inset: 0;
-      background: url('https://images.unsplash.com/photo-1533613220915-609f661a6fe1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-      filter: brightness(0.22) contrast(1.35) saturate(1.2);
+      background: url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
+      filter: brightness(0.22) contrast(1.4) saturate(1.1);
       z-index: -2;
     }
 
     .hero-bg::after {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(204,0,0,0.2));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(204,0,0,0.18));
       z-index: -1;
     }
 
-    /* SFONDO MILITARE (Black Digital Camo) */
+    /* SFONDO MILITARE STABILE */
     .military-bg {
       background: 
-        linear-gradient(rgba(2,2,2,0.88), rgba(2,2,2,0.88)),
-        url('https://i.ibb.co/0jZ0Z3Z/black-digital-camo-dark.jpg') center/cover fixed;
+        linear-gradient(rgba(2,2,2,0.92), rgba(2,2,2,0.92)),
+        url('https://picsum.photos/id/866/1920/1080') center/cover fixed;
     }
 
     section {
@@ -118,7 +115,6 @@
       line-height: 1;
     }
 
-    /* Grid Tattica */
     .grid-tactical {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -151,7 +147,6 @@
       opacity: 0.65;
     }
 
-    /* Roster */
     .roster-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -181,7 +176,6 @@
       margin-bottom: 0.3rem;
     }
 
-    /* Footer */
     footer {
       padding: 5rem 8%;
       text-align: center;
@@ -189,7 +183,6 @@
       background: #010101;
     }
 
-    /* Animazioni e resto */
     @keyframes glitch {
       0% { transform: translate(0); }
       20% { transform: translate(-4px, 4px); }

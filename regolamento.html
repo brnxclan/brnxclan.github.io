@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BRNX CLAN — Regolamento</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --red: #cc0000;
+      --red-bright: #ff1a1a;
+      --red-dark: #7a0000;
+      --black: #080808;
+      --black-mid: #111111;
+      --black-card: #161616;
+      --white: #f0f0f0;
+      --grey: #888888;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--black);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      overflow-x: hidden;
+      cursor: crosshair;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--black-mid);
+      border-bottom: 1px solid #1a1a1a;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--red-bright); }
+
+    .nav-back {
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+      text-decoration: none;
+      border: 1px solid #2a2a2a;
+      padding: 0.5rem 1.2rem;
+      transition: all 0.2s;
+    }
+
+    .nav-back:hover {
+      color: var(--white);
+      border-color: var(--red);
+    }
+
+    /* ── HEADER ── */
+    .page-header {
+      background: var(--black-mid);
+      border-bottom: 1px solid #1a1a1a;
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+    }
+
+    .page-header::after {
+      content: 'REGOLAMENTO';
+      position: absolute;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12rem;
+      color: rgba(255,255,255,0.015);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: 0.1em;
+    }
+
+    .page-header p {
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.8rem;
+    }
+
+    .page-header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      letter-spacing: 0.06em;
+      line-height: 1;
+    }
+
+    .page-header .subtitle {
+      color: var(--grey);
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-top: 0.8rem;
+      font-weight: 300;
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    /* ── INTRO BOX ── */
+    .intro-box {
+      border-left: 3px solid var(--red);
+      background: var(--black-card);
+      padding: 1.5rem 2rem;
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--grey);
+      line-height: 1.7;
+    }
+
+    .intro-box strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    /* ── RULE SECTION ── */
+    .rule-section {
+      margin-bottom: 3rem;
+      animation: fade-up 0.6s both;
+    }
+
+    .rule-section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid #1e1e1e;
+    }
+
+    .rule-section-title .num {
+      font-size: 0.85rem;
+      background: var(--red);
+      color: var(--white);
+      padding: 0.2rem 0.6rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── SINGLE RULE ── */
+    .rule {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      background: var(--black-card);
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1.5px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+
+    .rule:hover { background: #1c1c1c; }
+
+    .rule::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0;
+      width: 2px;
+      height: 0;
+      background: var(--red);
+      transition: height 0.3s;
+    }
+
+    .rule:hover::before { height: 100%; }
+
+    .rule-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .rule-text h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .rule-text p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--grey);
+      line-height: 1.6;
+    }
+
+    /* ── SANZIONI ── */
+    .sanctions {
+      background: var(--black-card);
+      border: 1px solid #1e1e1e;
+      border-top: 3px solid var(--red);
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    .sanctions h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.08em;
+      color: var(--red-bright);
+      margin-bottom: 1.2rem;
+    }
+
+    .sanction-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #1e1e1e;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .sanction-row:last-child { border-bottom: none; }
+
+    .sanction-label {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+
+    .sanction-badge {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border: 1px solid;
+    }
+
+    .badge-warn  { color: #ffaa00; border-color: #ffaa00; }
+    .badge-kick  { color: var(--red); border-color: var(--red-dark); }
+    .badge-ban   { color: var(--red-bright); border-color: var(--red-bright); background: rgba(204,0,0,0.1); }
+
+    /* ── FIRMA ── */
+    .firma {
+      margin-top: 3rem;
+      text-align: center;
+      padding: 2rem;
+      border: 1px solid #1e1e1e;
+    }
+
+    .firma p {
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+      line-height: 1.8;
+    }
+
+    .firma strong {
+      color: var(--red);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid #1a1a1a;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      color: #444;
+      text-transform: uppercase;
+    }
+
+    footer span { color: var(--red); }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .page-header { padding: 3rem 1.2rem 2rem; }
+      .content { padding: 2.5rem 1.2rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="index.html" class="nav-logo">BRN<span>X</span></a>
+    <a href="index.html" class="nav-back">← Torna al sito</a>
+  </nav>
+
+  <!-- ── HEADER ── -->
+  <div class="page-header">
+    <p>// Documenti ufficiali</p>
+    <h1>Regolamento</h1>
+    <p class="subtitle">BRNX Clan &nbsp;·&nbsp; Versione 1.0 &nbsp;·&nbsp; 2026</p>
+  </div>
+
+  <!-- ── CONTENT ── -->
+  <div class="content">
+
+    <div class="intro-box">
+      Entrare nel <strong>BRNX Clan</strong> significa accettare un codice di comportamento preciso.
+      Siamo un clan <strong>serio e competitivo</strong>: chi non rispetta le regole viene rimosso senza eccezioni.
+      Leggile attentamente prima di candidarti.
+    </div>
+
+    <!-- SEZIONE 1 -->
+    <div class="rule-section">
+      <div class="rule-section-title">
+        <span class="num">01</span> Comportamento
+      </div>
+
+      <div class="rule">
+        <div class="rule-icon">🤝</div>
+        <div class="rule-text">
+          <h4>Rispetto tra membri</h4>
+          <p>Il rispetto è obbligatorio tra tutti i membri del clan, sia in game che sui canali social e Discord. Insulti, flame e atteggiamenti tossici non sono tollerati.</p>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rule-icon">🎙️</div>
+        <div class="rule-text">
+          <h4>Comunicazione in partita</h4>
+          <p>Durante le sessioni di gioco in squadra è obbligatorio usare il microfono. Comunicare la posizione dei nemici, le killstreak e i movimenti è fondamentale per vincere.</p>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rule-icon">🧠</div>
+        <div class="rule-text">
+          <h4>Niente tilt</h4>
+          <p>Perdere fa parte del gioco. Lamentarsi in modo eccessivo, smettere di giocare seriamente o abbandonare la partita sono comportamenti vietati.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEZIONE 2 -->
+    <div class="rule-section">
+      <div class="rule-section-title">
+        <span class="num">02</span> Gioco
+      </div>
+
+      <div class="rule">
+        <div class="rule-icon">🚫</div>
+        <div class="rule-text">
+          <h4>Zero cheats</h4>
+          <p>L'uso di qualsiasi tipo di cheat, hack, exploit o programma di terze parti è severamente vietato. Chi viene scoperto viene espulso immediatamente e permanentemente.</p>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rule-icon">⚔️</div>
+        <div class="rule-text">
+          <h4>Gioco competitivo</h4>
+          <p>Ogni membro deve impegnarsi al massimo in ogni partita. Il BRNX Clan non è un posto per chi gioca in modo passivo o senza spirito competitivo.</p>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rule-icon">📈</div>
+        <div class="rule-text">
+          <h4>Miglioramento continuo</h4>
+          <p>Ci aspettiamo che ogni membro voglia migliorare costantemente: guardare i propri errori, allenarsi e studiare il meta sono comportamenti apprezzati e incentivati.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEZIONE 3 -->
+    <div class="rule-section">
+      <div class="rule-section-title">
+        <span class="num">03</span> Presenza & Attività
+      </div>
+
+      <div class="rule">
+        <div class="rule-icon">📅</div>
+        <div class="rule-text">
+          <h4>Attività minima</h4>
+          <p>I membri devono essere attivi almeno qualche volta a settimana. L'inattività prolungata senza preavviso porta alla rimozione automatica dal clan.</p>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rule-icon">💬</div>
+        <div class="rule-text">
+          <h4>Presenza su Discord</h4>
+          <p>Il Discord del clan è il canale ufficiale di comunicazione. Tutti i membri devono essere presenti e leggere gli annunci regolarmente.</p>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rule-icon">✋</div>
+        <div class="rule-text">
+          <h4>Assenze giustificate</h4>
+          <p>In caso di assenza prolungata per motivi personali, è necessario avvisare in anticipo la leadership del clan sul canale apposito.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEZIONE 4 -->
+    <div class="rule-section">
+      <div class="rule-section-title">
+        <span class="num">04</span> Rappresentanza
+      </div>
+
+      <div class="rule">
+        <div class="rule-icon">🏷️</div>
+        <div class="rule-text">
+          <h4>Tag obbligatorio</h4>
+          <p>Tutti i membri devono avere il tag <strong>[BRNX]</strong> nel proprio nome in game. Rappresentare il clan è un obbligo e un onore.</p>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rule-icon">🌐</div>
+        <div class="rule-text">
+          <h4>Comportamento sui social</h4>
+          <p>Il comportamento sui social media e nelle lobby pubbliche riflette l'immagine del clan. Flaming, insulti e provocazioni verso altri giocatori sono vietati anche fuori dal clan.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SANZIONI -->
+    <div class="sanctions">
+      <h3>⚠️ Sanzioni</h3>
+      <div class="sanction-row">
+        <span class="sanction-label">Prima infrazione lieve</span>
+        <span class="sanction-badge badge-warn">Avvertimento</span>
+      </div>
+      <div class="sanction-row">
+        <span class="sanction-label">Seconda infrazione / comportamento tossico</span>
+        <span class="sanction-badge badge-kick">Kick temporaneo</span>
+      </div>
+      <div class="sanction-row">
+        <span class="sanction-label">Uso di cheat o infrazione grave</span>
+        <span class="sanction-badge badge-ban">Ban permanente</span>
+      </div>
+      <div class="sanction-row">
+        <span class="sanction-label">Inattività prolungata senza preavviso</span>
+        <span class="sanction-badge badge-kick">Rimozione automatica</span>
+      </div>
+    </div>
+
+    <!-- FIRMA -->
+    <div class="firma">
+      <p>
+        Accettando di entrare nel clan dichiari di aver letto<br/>
+        e di accettare integralmente questo regolamento.<br/><br/>
+        <strong>— BRNX CLAN Leadership —</strong>
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    &copy; 2026 <span>BRNX CLAN</span> &nbsp;·&nbsp; Warzone &nbsp;·&nbsp; Tutti i diritti riservati
+  </footer>
+
+</body>
+</html>

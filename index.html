@@ -65,6 +65,7 @@
     }
     .nav-logo span { color: var(--red); text-shadow: 0 0 20px var(--red); }
 
+    /* HERO */
     .hero {
       height: 100vh;
       display: flex; 
@@ -90,7 +91,43 @@
       z-index: -1;
     }
 
-    /* SFONDO MILITARE STABILE */
+    /* CONTATORE MILITARE */
+    .counter-section {
+      background: linear-gradient(rgba(2,2,2,0.95), rgba(2,2,2,0.95)),
+                  url('https://picsum.photos/id/866/1920/1080') center/cover fixed;
+      padding: 6rem 8%;
+      text-align: center;
+      border-top: 1px solid rgba(204,0,0,0.3);
+      border-bottom: 1px solid rgba(204,0,0,0.3);
+    }
+
+    .counter-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 6px;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .counter-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 12vw, 8.5rem);
+      font-weight: 900;
+      letter-spacing: -4px;
+      color: white;
+      text-shadow: 0 0 30px var(--red);
+      line-height: 1;
+    }
+
+    .counter-text {
+      font-size: 1.4rem;
+      color: var(--grey);
+      letter-spacing: 3px;
+      margin-top: 0.5rem;
+    }
+
+    /* SFONDO MILITARE per altre sezioni */
     .military-bg {
       background: 
         linear-gradient(rgba(2,2,2,0.92), rgba(2,2,2,0.92)),
@@ -115,6 +152,44 @@
       line-height: 1;
     }
 
+    /* Leadership */
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .leadership-card {
+      background: var(--black-card);
+      padding: 2.5rem 2rem;
+      border: 1px solid #222;
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+
+    .leadership-card:hover {
+      border-color: var(--red);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(204, 0, 0, 0.25);
+    }
+
+    .role {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 4px;
+      color: var(--red);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Altre sezioni */
     .grid-tactical {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -127,7 +202,6 @@
       border: 1px solid #222;
       transition: all 0.4s ease;
       position: relative;
-      overflow: hidden;
     }
 
     .tactical-card:hover {
@@ -290,6 +364,38 @@
     </div>
   </section>
 
+  <!-- CONTATORE MEMBRI ATTIVI -->
+  <div class="counter-section">
+    <div class="counter-label">FORZA OPERATIVA ATTIVA</div>
+    <div class="counter-number" id="memberCount">000</div>
+    <div class="counter-text">MEMBRI ATTIVI // IN MISSIONE</div>
+  </div>
+
+  <!-- Command Chain -->
+  <section class="military-bg">
+    <div class="section-header">
+      <h2>Command Chain</h2>
+      <p style="color: var(--grey); font-size: 1.3rem; margin-top: 1rem;">LEADERSHIP // BRNX HIGH COMMAND</p>
+    </div>
+    
+    <div class="leadership-grid">
+      <div class="leadership-card">
+        <div class="role">Founder</div>
+        <div class="name">ENIGMA</div>
+        <div class="name">GG 47</div>
+      </div>
+
+      <div class="leadership-card">
+        <div class="role">Admin</div>
+        <div class="name">SMARTY91</div>
+        <div class="name">NENNANENE</div>
+        <div class="name">LOEE</div>
+        <div class="name">CATCH O’CAVALL</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Obiettivi di Guerra -->
   <section class="military-bg">
     <div class="section-header">
       <h2>Obiettivi di Guerra</h2>
@@ -312,12 +418,13 @@
     </div>
   </section>
 
+  <!-- Roster Operativo -->
   <section class="military-bg">
     <div class="section-header">
       <h2>Roster Operativo</h2>
     </div>
     <div class="roster-grid">
-      <div class="member-box"><h3>GHOST</h3><p>Founder</p></div>
+      <div class="member-box"><h3>GHOST</h3><p>Assault</p></div>
       <div class="member-box"><h3>RIPPER</h3><p>Sniper</p></div>
       <div class="member-box"><h3>VIPER</h3><p>Assault</p></div>
       <div class="member-box"><h3>TANK</h3><p>Support</p></div>
@@ -329,5 +436,40 @@
       © 2026 BRNX CLAN — ALL RIGHTS RESERVED // WARZONE ELITE DIVISION
     </p>
   </footer>
+
+  <!-- Script per animazione del contatore -->
+  <script>
+    function animateCounter() {
+      const counter = document.getElementById('memberCount');
+      const target = 107;
+      let count = 0;
+      const duration = 2500; // 2.5 secondi
+      const increment = target / (duration / 16); // circa 60fps
+
+      const timer = setInterval(() => {
+        count += increment;
+        if (count >= target) {
+          count = target;
+          clearInterval(timer);
+        }
+        counter.textContent = Math.floor(count).toString().padStart(3, '0');
+      }, 16);
+    }
+
+    // Avvia l'animazione quando la sezione entra in vista
+    window.addEventListener('load', () => {
+      const counterSection = document.querySelector('.counter-section');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.5 });
+
+      observer.observe(counterSection);
+    });
+  </script>
 </body>
 </html>

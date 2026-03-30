@@ -26,7 +26,7 @@
       cursor: crosshair;
     }
 
-    /* Effetti atmosfera militare */
+    /* Effetti atmosfera */
     .overlay-vignette {
       position: fixed; inset: 0;
       background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.85) 100%);
@@ -53,7 +53,7 @@
       position: fixed; top: 0; left: 0; right: 0;
       padding: 1.8rem 5rem;
       display: flex; justify-content: space-between; align-items: center;
-      background: linear-gradient(to bottom, rgba(2,2,2,0.9), transparent);
+      background: linear-gradient(to bottom, rgba(2,2,2,0.92), transparent);
       z-index: 1000;
       border-bottom: 1px solid rgba(204, 0, 0, 0.15);
     }
@@ -67,7 +67,7 @@
     }
     .nav-logo span { color: var(--red); text-shadow: 0 0 20px var(--red); }
 
-    /* HERO */
+    /* HERO (rimane uguale) */
     .hero {
       height: 100vh;
       display: flex; 
@@ -89,80 +89,22 @@
     .hero-bg::after {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(204,0,0,0.15));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(204,0,0,0.18));
       z-index: -1;
     }
 
-    .logo-main {
-      width: 240px;
-      height: 240px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid var(--red);
-      box-shadow: 0 0 60px rgba(204, 0, 0, 0.7),
-                  inset 0 0 40px rgba(255,255,255,0.1);
-      margin-bottom: 2.5rem;
-      animation: glitch 4s infinite alternate;
-    }
-
-    .hero h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(5.5rem, 16vw, 11rem);
-      line-height: 0.82;
-      letter-spacing: -4px;
-      text-transform: uppercase;
-      text-shadow: 0 0 30px rgba(204, 0, 0, 0.6);
-    }
-
-    .hero h1 span { color: var(--red); }
-
-    .hero-subtitle {
-      font-size: 1.6rem;
-      letter-spacing: 12px;
-      color: var(--grey);
-      text-transform: uppercase;
-      margin: 1.2rem 0 4rem;
-    }
-
-    /* Bottoni */
-    .hero-btns {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .btn-military {
-      padding: 1.3rem 4rem;
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.25rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: white;
-      background: var(--red);
-      border: none;
-      cursor: pointer;
-      clip-path: polygon(8% 0, 100% 0, 92% 100%, 0% 100%);
-      transition: all 0.4s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn-military:hover {
-      background: var(--red-bright);
-      transform: scale(1.08) skewX(-8deg);
-      box-shadow: 0 0 40px var(--red);
-    }
-
-    .btn-military.secondary {
-      background: transparent;
-      border: 2px solid var(--grey);
-    }
-
-    /* Sezioni */
+    /* SEZIONI CON SFONDO MILITARE */
     section {
       padding: 10rem 8%;
       position: relative;
+    }
+
+    /* Sfondo militare per le sezioni (camouflage scuro) */
+    .military-bg {
+      background: 
+        linear-gradient(rgba(2,2,2,0.85), rgba(2,2,2,0.85)),
+        url('https://i.imgur.com/5f3f3f3.jpg') center/cover; /* Black digital camo */
+      background-attachment: fixed;
     }
 
     .section-header {
@@ -197,7 +139,7 @@
     .tactical-card:hover {
       border-color: var(--red);
       transform: translateY(-15px);
-      box-shadow: 0 20px 40px rgba(204, 0, 0, 0.2);
+      box-shadow: 0 20px 40px rgba(204, 0, 0, 0.25);
     }
 
     .tactical-card::before {
@@ -227,8 +169,6 @@
       align-items: center;
       justify-content: center;
       transition: all 0.5s ease;
-      position: relative;
-      overflow: hidden;
     }
 
     .member-box:hover {
@@ -259,6 +199,70 @@
       60% { transform: translate(4px, 4px); }
       80% { transform: translate(4px, -4px); }
       100% { transform: translate(0); }
+    }
+
+    .logo-main {
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid var(--red);
+      box-shadow: 0 0 60px rgba(204, 0, 0, 0.7);
+      margin-bottom: 2.5rem;
+      animation: glitch 4s infinite alternate;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5.5rem, 16vw, 11rem);
+      line-height: 0.82;
+      letter-spacing: -4px;
+      text-transform: uppercase;
+      text-shadow: 0 0 30px rgba(204, 0, 0, 0.6);
+    }
+
+    .hero h1 span { color: var(--red); }
+
+    .hero-subtitle {
+      font-size: 1.6rem;
+      letter-spacing: 12px;
+      color: var(--grey);
+      text-transform: uppercase;
+      margin: 1.2rem 0 4rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-military {
+      padding: 1.3rem 4rem;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: white;
+      background: var(--red);
+      border: none;
+      cursor: pointer;
+      clip-path: polygon(8% 0, 100% 0, 92% 100%, 0% 100%);
+      transition: all 0.4s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-military:hover {
+      background: var(--red-bright);
+      transform: scale(1.08) skewX(-8deg);
+      box-shadow: 0 0 40px var(--red);
+    }
+
+    .btn-military.secondary {
+      background: transparent;
+      border: 2px solid var(--grey);
     }
 
     @media (max-width: 768px) {
@@ -295,7 +299,8 @@
     </div>
   </section>
 
-  <section>
+  <!-- Sezione Obiettivi con sfondo militare -->
+  <section class="military-bg">
     <div class="section-header">
       <h2>Obiettivi di Guerra</h2>
       <p style="color: var(--grey); font-size: 1.3rem; margin-top: 1rem;">REQUISITI DI SQUADRA // PROTOCOLLO BRNX</p>
@@ -317,7 +322,8 @@
     </div>
   </section>
 
-  <section style="background: #050505;">
+  <!-- Sezione Roster con sfondo militare -->
+  <section class="military-bg">
     <div class="section-header">
       <h2>Roster Operativo</h2>
     </div>

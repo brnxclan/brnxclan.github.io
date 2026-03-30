@@ -44,106 +44,97 @@
     }
     .nav-logo span { color: var(--red-bright); }
 
-    .form-container {
-      max-width: 620px;
-      margin: 5rem auto;
-      padding: 3rem 2.5rem;
+    .container {
+      max-width: 720px;
+      margin: 6rem auto;
+      padding: 3.5rem 3rem;
       background: var(--black-card);
       border: 1px solid #1a1a1a;
       position: relative;
+      text-align: center;
     }
 
-    .form-container::before {
+    .container::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 4px;
+      top: 0; left: 0; width: 100%; height: 5px;
       background: linear-gradient(to right, var(--red), var(--red-bright));
     }
 
     h1 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 3.2rem;
+      font-size: 3.6rem;
       letter-spacing: 0.05em;
-      text-align: center;
-      margin-bottom: 0.4rem;
+      margin-bottom: 1rem;
+      color: var(--white);
     }
 
     .subtitle {
-      text-align: center;
-      color: var(--grey);
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      font-size: 0.95rem;
-      margin-bottom: 3rem;
-    }
-
-    .form-group {
-      margin-bottom: 1.8rem;
-    }
-
-    label {
-      display: block;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.25rem;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.6rem;
       color: var(--red-bright);
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      font-size: 1.15rem;
+      margin-bottom: 3.5rem;
     }
 
-    input, textarea {
-      width: 100%;
-      padding: 1rem 1.2rem;
-      background: #0d0d0d;
-      border: 1px solid #222;
-      color: var(--white);
-      font-size: 1.05rem;
+    .warning-box {
+      background: #0a0a0a;
+      border: 2px solid var(--red);
+      padding: 2.8rem 2.5rem;
+      margin: 2.5rem 0;
+      text-align: left;
     }
 
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--red);
-      box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.15);
-    }
-
-    textarea { min-height: 130px; resize: vertical; }
-
-    .privacy-group {
-      margin: 2rem 0;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .privacy-group input[type="checkbox"] {
-      width: auto;
-      margin-top: 4px;
-      accent-color: var(--red);
-    }
-
-    .privacy-text {
-      font-size: 0.95rem;
-      color: var(--grey);
-      line-height: 1.5;
-    }
-
-    .btn-submit {
-      width: 100%;
-      background: var(--red);
-      color: var(--white);
-      border: none;
-      padding: 1.2rem;
+    .warning-box h3 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem;
-      letter-spacing: 0.1em;
-      cursor: pointer;
-      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
-      transition: all 0.3s;
-      margin-top: 1rem;
+      color: var(--red-bright);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.08em;
     }
 
-    .btn-submit:hover {
-      background: var(--red-bright);
-      transform: translateY(-3px);
+    .email-link {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--red-bright);
+      text-decoration: none;
+    }
+
+    .email-link:hover {
+      color: #ff5555;
+      text-decoration: underline;
+    }
+
+    .requirements {
+      text-align: left;
+      margin: 2.5rem 0;
+      font-size: 1.08rem;
+    }
+
+    .requirements ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .requirements li {
+      margin: 1rem 0;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .requirements li::before {
+      content: "▶";
+      position: absolute;
+      left: 0;
+      color: var(--red);
+      font-weight: bold;
+    }
+
+    .warning-text {
+      color: #ff4444;
+      font-weight: 600;
+      margin: 2rem 0 1.5rem;
+      font-size: 1.1rem;
     }
 
     footer {
@@ -151,6 +142,11 @@
       padding: 3rem 1rem 2rem;
       color: #444;
       font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      .container { margin: 3rem 1rem; padding: 2.5rem 1.8rem; }
+      h1 { font-size: 2.9rem; }
     }
   </style>
 </head>
@@ -160,54 +156,46 @@
     <a href="index.html" style="color: var(--grey); text-decoration: none; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">← Torna alla Home</a>
   </nav>
 
-  <div class="form-container">
-    <h1>RECLUTAMENTO</h1>
-    <p class="subtitle">Dimostra il tuo valore • Entra nel Clan</p>
+  <div class="container">
+    <h1>RECLUTAMENTO APERTO</h1>
+    <p class="subtitle">BRNX CLAN — Warzone Special Division</p>
 
-    <form action="https://api.web3forms.com/submit" method="POST">
+    <div class="warning-box">
+      <h3>ATTENZIONE</h3>
+      <p>Non stiamo cercando giocatori qualunque.</p>
+      <p>Stiamo cercando <strong>guerrieri</strong>.</p>
       
-      <!-- Chiave pubblica Web3Forms (sostituiscila con la tua) -->
-      <input type="hidden" name="access_key" value="INSERISCI_QUI_LA_TUA_ACCESS_KEY">
+      <br>
+      <p class="warning-text">Solo chi è disposto a dare tutto per il tag BRNX verrà preso in considerazione.</p>
 
-      <div class="form-group">
-        <label for="nickname">Nickname (In-game)</label>
-        <input type="text" id="nickname" name="nickname" placeholder="Esempio: Ghost_BRNX" required>
-      </div>
+      <strong>Email ufficiale per la candidatura:</strong><br><br>
+      <a href="mailto:brnxclan.wz@gmail.com" class="email-link">brnxclan.wz@gmail.com</a>
+    </div>
 
-      <div class="form-group">
-        <label for="age">Età Anagrafica</label>
-        <input type="number" id="age" name="eta" placeholder="Quanti anni hai?" min="14" required>
-      </div>
+    <div class="requirements">
+      <h3>Nel messaggio devi specificare senza giri di parole:</h3>
+      <ul>
+        <li>Il tuo <strong>Nickname In-game</strong></li>
+        <li>La tua <strong>Età</strong></li>
+        <li>L'<strong>Activision ID</strong> completo</li>
+        <li>Piattaforma di gioco (PC / PS5 / Xbox)</li>
+        <li>Il tuo <strong>K/D medio attuale</strong> e statistiche recenti</li>
+        <li>Perché dovremmo accettare te nel BRNX e cosa sei disposto a sacrificare per il clan</li>
+      </ul>
+    </div>
 
-      <div class="form-group">
-        <label for="playerid">Activision ID</label>
-        <input type="text" id="playerid" name="playerid" placeholder="User#1234567" required>
-      </div>
+    <p style="color: #aa0000; font-size: 1.15rem; margin-top: 2.5rem; font-weight: 600;">
+      Candidature incomplete, mal scritte o da giocatori casual verranno ignorate senza risposta.
+    </p>
 
-      <div class="form-group">
-        <label for="email">Indirizzo Email</label>
-        <input type="email" id="email" name="email" placeholder="tua@email.com" required>
-      </div>
-
-      <div class="form-group">
-        <label for="reason">Perché vuoi entrare nei BRNX?</label>
-        <textarea id="reason" name="messaggio" placeholder="Raccontaci la tua esperienza, piattaforma, K/D medio..." required></textarea>
-      </div>
-
-      <!-- Privacy -->
-      <div class="privacy-group">
-        <input type="checkbox" id="privacy" required>
-        <label for="privacy" class="privacy-text">
-          Accetto il trattamento dei miei dati personali e dichiaro di aver letto il Regolamento del BRNX Clan.
-        </label>
-      </div>
-
-      <button type="submit" class="btn-submit">INVIA CANDIDATURA</button>
-    </form>
+    <p style="color: var(--grey); margin-top: 3rem;">
+      Solo i migliori riceveranno risposta.<br>
+      Il resto verrà scartato.
+    </p>
   </div>
 
   <footer>
-    © 2026 BRNX CLAN &nbsp;·&nbsp; SELEZIONI APERTE — WARZONE ELITE DIVISION
+    © 2026 BRNX CLAN &nbsp;·&nbsp; WARZONE ELITE DIVISION — SOLO I FORTI SOPRAVVIVONO
   </footer>
 </body>
 </html>

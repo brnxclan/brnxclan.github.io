@@ -11,7 +11,7 @@
       --red: #cc0000;
       --red-bright: #ff1a1a;
       --black: #020202;
-      --black-card: rgba(15, 15, 15, 0.95);
+      --black-card: rgba(15, 15, 15, 0.96);
       --white: #ffffff;
       --grey: #a0a0a0;
     }
@@ -29,7 +29,7 @@
     /* Effetti atmosfera */
     .overlay-vignette {
       position: fixed; inset: 0;
-      background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.85) 100%);
+      background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.88) 100%);
       pointer-events: none; 
       z-index: 100;
     }
@@ -40,12 +40,12 @@
       background-size: 100% 4px;
       pointer-events: none; 
       z-index: 101;
-      animation: scan 8s linear infinite;
+      animation: scan 10s linear infinite;
     }
 
     @keyframes scan {
       0% { background-position: 0 0; }
-      100% { background-position: 0 200px; }
+      100% { background-position: 0 300px; }
     }
 
     /* NAV */
@@ -53,9 +53,9 @@
       position: fixed; top: 0; left: 0; right: 0;
       padding: 1.8rem 5rem;
       display: flex; justify-content: space-between; align-items: center;
-      background: linear-gradient(to bottom, rgba(2,2,2,0.92), transparent);
+      background: linear-gradient(to bottom, rgba(2,2,2,0.95), transparent);
       z-index: 1000;
-      border-bottom: 1px solid rgba(204, 0, 0, 0.15);
+      border-bottom: 1px solid rgba(204, 0, 0, 0.2);
     }
 
     .nav-logo {
@@ -67,7 +67,7 @@
     }
     .nav-logo span { color: var(--red); text-shadow: 0 0 20px var(--red); }
 
-    /* HERO (rimane uguale) */
+    /* HERO */
     .hero {
       height: 100vh;
       display: flex; 
@@ -82,29 +82,27 @@
     .hero-bg {
       position: absolute; inset: 0;
       background: url('https://images.unsplash.com/photo-1533613220915-609f661a6fe1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-      filter: brightness(0.25) contrast(1.3) saturate(1.1);
+      filter: brightness(0.22) contrast(1.35) saturate(1.2);
       z-index: -2;
     }
 
     .hero-bg::after {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(204,0,0,0.18));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(204,0,0,0.2));
       z-index: -1;
     }
 
-    /* SEZIONI CON SFONDO MILITARE */
+    /* SFONDO MILITARE (Black Digital Camo) */
+    .military-bg {
+      background: 
+        linear-gradient(rgba(2,2,2,0.88), rgba(2,2,2,0.88)),
+        url('https://i.ibb.co/0jZ0Z3Z/black-digital-camo-dark.jpg') center/cover fixed;
+    }
+
     section {
       padding: 10rem 8%;
       position: relative;
-    }
-
-    /* Sfondo militare per le sezioni (camouflage scuro) */
-    .military-bg {
-      background: 
-        linear-gradient(rgba(2,2,2,0.85), rgba(2,2,2,0.85)),
-        url('https://i.imgur.com/5f3f3f3.jpg') center/cover; /* Black digital camo */
-      background-attachment: fixed;
     }
 
     .section-header {
@@ -139,7 +137,7 @@
     .tactical-card:hover {
       border-color: var(--red);
       transform: translateY(-15px);
-      box-shadow: 0 20px 40px rgba(204, 0, 0, 0.25);
+      box-shadow: 0 20px 40px rgba(204, 0, 0, 0.3);
     }
 
     .tactical-card::before {
@@ -150,7 +148,7 @@
       font-size: 0.9rem;
       color: var(--red);
       font-weight: 700;
-      opacity: 0.6;
+      opacity: 0.65;
     }
 
     /* Roster */
@@ -191,7 +189,7 @@
       background: #010101;
     }
 
-    /* Animazioni */
+    /* Animazioni e resto */
     @keyframes glitch {
       0% { transform: translate(0); }
       20% { transform: translate(-4px, 4px); }
@@ -299,7 +297,6 @@
     </div>
   </section>
 
-  <!-- Sezione Obiettivi con sfondo militare -->
   <section class="military-bg">
     <div class="section-header">
       <h2>Obiettivi di Guerra</h2>
@@ -322,7 +319,6 @@
     </div>
   </section>
 
-  <!-- Sezione Roster con sfondo militare -->
   <section class="military-bg">
     <div class="section-header">
       <h2>Roster Operativo</h2>
